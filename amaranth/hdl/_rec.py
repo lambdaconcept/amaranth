@@ -101,7 +101,7 @@ class Record(ValueCastable):
         def concat(a, b):
             if a is None:
                 return b
-            return f"{a}__{b}"
+            return f"{a}_{b}"
 
         fields = {}
         for field_name in other.fields:
@@ -125,7 +125,7 @@ class Record(ValueCastable):
         def concat(a, b):
             if a is None:
                 return b
-            return f"{a}__{b}"
+            return f"{a}_{b}"
 
         self.layout = Layout.cast(layout, src_loc_at=1 + src_loc_at)
         self.fields = OrderedDict()

@@ -120,7 +120,7 @@ class ResourceManager:
                 fields = OrderedDict()
                 for sub in resource.ios:
                     fields[sub.name] = resolve(sub, dir[sub.name], xdr[sub.name],
-                                               name=f"{name}__{sub.name}",
+                                               name=f"{name}_{sub.name}",
                                                attrs={**attrs, **sub.attrs})
                 rec = Record([
                     (f_name, f.layout) for (f_name, f) in fields.items()
