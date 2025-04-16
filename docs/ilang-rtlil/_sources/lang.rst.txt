@@ -190,6 +190,11 @@ Specifying a shape with a range is convenient for counters, indexes, and all oth
       >>> fencepost.value
       0
 
+   .. doctest::
+      :hide:
+
+      >>> _warning_filters_backup.__exit__()
+
    Amaranth detects uses of :class:`Const` and :class:`Signal` that invoke such an off-by-one error, and emits a diagnostic message.
 
 .. note::
