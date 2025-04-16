@@ -178,7 +178,7 @@ Specifying a shape with a range is convenient for counters, indexes, and all oth
       >>> import warnings
       >>> _warning_filters_backup = warnings.catch_warnings()
       >>> _warning_filters_backup.__enter__() # have to do this horrific hack to make it work with `PYTHONWARNINGS=error` :(
-      >>> warnings.simplefilter("default", amaranth.hdl._ast.SyntaxWarning)
+      >>> warnings.simplefilter("default", amaranth.hdl.SyntaxWarning)
 
    .. doctest::
 
