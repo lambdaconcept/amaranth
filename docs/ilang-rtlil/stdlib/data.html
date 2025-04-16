@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data structures &mdash; Amaranth HDL toolchain 0.4.6.dev2 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/platformpicker.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <title>Data structures &mdash; Amaranth HDL toolchain 0.4.6.dev3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/platformpicker.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=38b507dd" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a43dd36f"></script>
+        <script src="../_static/documentation_options.js?v=00455776"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/platformpicker.js"></script>
@@ -38,7 +40,7 @@
             Amaranth HDL toolchain
           </a>
               <div class="version">
-                0.4.6.dev2+gf85d2d1
+                0.4.6.dev3+g58dd088
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -129,7 +131,8 @@
 <h3>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"></a></h3>
 <p>The fundamental Amaranth type is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Value</span></code>: a sequence of bits that can also be used as a number. Manipulating values directly is sufficient for simple applications, but in more complex ones, values are often more than just a sequence of bits; they have well-defined internal structure.</p>
 <p>For example, consider a module that processes pixels, converting them from RGB to grayscale. The color pixel format is RGB565:</p>
-<img alt="../_images/rgb565_layout.svg" src="../_images/rgb565_layout.svg" /><p>This module could be implemented (using a fast but <em>very</em> approximate method) as follows:</p>
+<img alt="../_images/rgb565_layout.svg" src="../_images/rgb565_layout.svg" />
+<p>This module could be implemented (using a fast but <em>very</em> approximate method) as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i_color</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">o_gray</span>  <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 
@@ -459,7 +462,8 @@ in which they appear in <code class="docutils literal notranslate"><span class="
 <p>The fields of a structure layout follow one another without any gaps, and the size of
 a structure layout is the sum of the sizes of its members.</p>
 <p>For example, the following layout of a 16-bit value:</p>
-<img alt="../_images/struct_layout.svg" src="../_images/struct_layout.svg" /><p>can be described with:</p>
+<img alt="../_images/struct_layout.svg" src="../_images/struct_layout.svg" />
+<p>can be described with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">StructLayout</span><span class="p">({</span>
     <span class="s2">&quot;first&quot;</span><span class="p">:</span>  <span class="mi">3</span><span class="p">,</span>
     <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
@@ -502,7 +506,8 @@ no fields.</p>
 <p>The fields of a union layout all start from bit 0, and the size of a union layout is the size
 of the largest of its members.</p>
 <p>For example, the following layout of a 7-bit value:</p>
-<img alt="../_images/union_layout.svg" src="../_images/union_layout.svg" /><p>can be described with:</p>
+<img alt="../_images/union_layout.svg" src="../_images/union_layout.svg" />
+<p>can be described with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">UnionLayout</span><span class="p">({</span>
     <span class="s2">&quot;first&quot;</span><span class="p">:</span>  <span class="mi">3</span><span class="p">,</span>
     <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
@@ -556,7 +561,8 @@ in which they appear in <code class="docutils literal notranslate"><span class="
 <p>The fields of an array layout follow one another without any gaps, and the size of an array
 layout is the size of its element multiplied by its length.</p>
 <p>For example, the following layout of a 16-bit value:</p>
-<img alt="../_images/array_layout.svg" src="../_images/array_layout.svg" /><p>can be described with:</p>
+<img alt="../_images/array_layout.svg" src="../_images/array_layout.svg" />
+<p>can be described with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">ArrayLayout</span><span class="p">(</span><span class="n">unsigned</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -598,7 +604,8 @@ defined contiguously, the fields in a flexible layout can overlap and have gaps 
 may also be more convenient to use a flexible layout when the layout information is derived
 from an external data file rather than defined in Python code.</p>
 <p>For example, the following layout of a 16-bit value:</p>
-<img alt="../_images/flexible_layout.svg" src="../_images/flexible_layout.svg" /><p>can be described with:</p>
+<img alt="../_images/flexible_layout.svg" src="../_images/flexible_layout.svg" />
+<p>can be described with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">FlexibleLayout</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="p">{</span>
     <span class="s2">&quot;first&quot;</span><span class="p">:</span>  <span class="n">data</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">unsigned</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
     <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">unsigned</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
